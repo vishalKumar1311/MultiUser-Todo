@@ -1,0 +1,53 @@
+
+{% extends 'app/base.html' %}
+
+{% block content %}
+<section class="container forms">
+   <div class="form signup">
+      <div class="form-content">
+          <header>Signup</header>
+          <form method="POST">
+            {%csrf_token%}
+              <div class="field input-field">
+                  {{form.username}}
+                  <!-- <input type="email" placeholder="Email" class="input"> -->
+              </div>
+
+              <div class="field input-field">
+                  {{form.password1}}
+                  <!-- <input type="password" placeholder="Create password" class="password"> -->
+              </div>
+
+              <div class="field input-field">
+                  {{form.password2}}
+                  <!-- <input type="password" placeholder="Confirm password" class="password"> -->
+                  <i class='bx bx-hide eye-icon'></i>
+              </div>
+
+              <div class="field button-field">
+                  <button type="submit">Signup</button>
+              </div>
+          </form>
+
+          <div class="form-link">
+              <span>Already have an account? <a href="{% url 'loginpage' %}" class="link login-link">Login</a></span>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+<!-- <div class="card text-center mx-auto">
+   <div class="card-header mx-auto">
+     Create Account
+
+    <form method="POST">
+    
+     {{form.as_p}}
+    
+     <input type="submit" value="Create Account">
+    </form>
+ </div> -->
+
+{% endblock %}

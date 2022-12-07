@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="container">
+   <div class="new-container" >
+
+      <form method="POST" id="newtask">
+         {%csrf_token%}
+         {{form.as_p}}
+         <button type="submit" id="push">Update</button>
+         <!-- <input type="submit" name="save"> -->
+      </form>
+       <!-- <input type="text" placeholder="Task to be done.."> -->
+   </div>
+   <div id="tasks">
+      {% for todo in todos %}
+      <div class="task">
+         {{todo.title}} 
+         {{todo.status}} 
+         <a href="update/{{todo.id}}" class="button">Update</a>
+         <a href="delete/{{todo.id}}" class="button">Delete</a>
+      </div>
+     
+      {% endfor %}
+   </div>
+</div>
+
+{% endblock %}
